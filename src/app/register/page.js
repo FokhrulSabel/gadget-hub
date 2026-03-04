@@ -1,36 +1,32 @@
 "use client";
 
-import { signIn } from "next-auth/react";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/navigation";
+import axios from "axios";
 import Button from "@/components/ui/Button";
 import Input from "@/components/ui/Input";
 
-export default function LoginPage() {
+export default function RegisterPage() {
   const { register, handleSubmit } = useForm();
   const router = useRouter();
 
   const onSubmit = async (data) => {
-    const res = await signIn("credentials", {
-      ...data,
-      redirect: false,
-    });
-
-    if (!res.error) {
-      router.push("/");
-    } else {
-      alert(res.error);
+    try {
+      await axios.post("/api/register", data);
+      router.push("/login");
+    } catch (err) {
+      alert(err.response?.data?.error || "Registration failed");
     }
   };
 
   return (
     <div className="flex items-center justify-center min-h-[80vh] px-4">
       <div className="w-full max-w-md p-8 rounded-xl shadow-lg bg-white dark:bg-slate-800">
-        <h2 className="text-2xl font-bold mb-6 text-center">
-          Login to GadgetHub
-        </h2>
+        <h2 className="text-2xl font-bold mb-6 text-center">Create Account</h2>
 
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+          <Input label="Name" name="name" register={register} required />
+
           <Input label="Email" name="email" register={register} required />
 
           <Input
@@ -42,19 +38,9 @@ export default function LoginPage() {
           />
 
           <Button type="submit" className="w-full">
-            Login
+            Register
           </Button>
         </form>
-
-        <div className="my-4 text-center text-sm text-gray-500">OR</div>
-
-        <Button
-          variant="secondary"
-          className="w-full"
-          onClick={() => signIn("google")}
-        >
-          Continue with Google
-        </Button>
       </div>
     </div>
   );
