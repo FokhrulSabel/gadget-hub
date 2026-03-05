@@ -25,3 +25,20 @@ export async function GET(req, { params }) {
     );
   }
 }
+
+export async function DELETE(req, { params }) {
+  try {
+    await dbConnect();
+
+    const { id } = await params;
+
+    await Product.findByIdAndDelete(id);
+
+    return NextResponse.json({ ok: true });
+  } catch (err) {
+    return NextResponse.json(
+      { ok: false, error: err.message },
+      { status: 500 },
+    );
+  }
+}
