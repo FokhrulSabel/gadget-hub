@@ -1,0 +1,90 @@
+[
+  {
+    "id": 1,
+    "name": "iPhone 15 Pro",
+    "brand": "Apple",
+    "category": "Smartphone",
+    "price": 999,
+    "stock": 25,
+    "rating": 4.8,
+    "image": "https://images.unsplash.com/photo-1695048133142-1a20484d2569",
+    "description": "Apple iPhone 15 Pro with A17 Pro chip, titanium design, and advanced camera system."
+  },
+  {
+    "id": 2,
+    "name": "Samsung Galaxy S24 Ultra",
+    "brand": "Samsung",
+    "category": "Smartphone",
+    "price": 1199,
+    "stock": 18,
+    "rating": 4.7,
+    "image": "https://images.unsplash.com/photo-1706100960984-3f6b4b54883b",
+    "description": "Samsung flagship smartphone with Snapdragon processor, S-Pen support, and 200MP camera."
+  },
+  {
+    "id": 3,
+    "name": "MacBook Air M3",
+    "brand": "Apple",
+    "category": "Laptop",
+    "price": 1299,
+    "stock": 12,
+    "rating": 4.9,
+    "image": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8",
+    "description": "Lightweight MacBook Air powered by Apple M3 chip with long battery life."
+  },
+  {
+    "id": 4,
+    "name": "Dell XPS 13",
+    "brand": "Dell",
+    "category": "Laptop",
+    "price": 1099,
+    "stock": 10,
+    "rating": 4.6,
+    "image": "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed",
+    "description": "Premium ultrabook with InfinityEdge display and powerful Intel processor."
+  },
+  {
+    "id": 5,
+    "name": "Sony WH-1000XM5",
+    "brand": "Sony",
+    "category": "Headphones",
+    "price": 399,
+    "stock": 30,
+    "rating": 4.8,
+    "image": "https://images.unsplash.com/photo-1583394838336-acd977736f90",
+    "description": "Industry-leading noise cancelling wireless headphones."
+  },
+  {
+    "id": 6,
+    "name": "Apple Watch Series 9",
+    "brand": "Apple",
+    "category": "Smartwatch",
+    "price": 429,
+    "stock": 22,
+    "rating": 4.7,
+    "image": "https://images.unsplash.com/photo-1510017803434-a899398421b3",
+    "description": "Advanced smartwatch with health tracking and seamless Apple ecosystem integration."
+  },
+  {
+    "id": 7,
+    "name": "Logitech MX Master 3S",
+    "brand": "Logitech",
+    "category": "Accessories",
+    "price": 99,
+    "stock": 40,
+    "rating": 4.9,
+    "image": "https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04",
+    "description": "Premium wireless productivity mouse with ultra-fast scrolling."
+  },
+  {
+    "id": 8,
+    "name": "Samsung 27\" 4K Monitor",
+    "brand": "Samsung",
+    "category": "Monitor",
+    "price": 349,
+    "stock": 15,
+    "rating": 4.6,
+    "image": "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf",
+    "description": "Ultra HD 4K monitor with vibrant colors and slim design."
+  }
+]
