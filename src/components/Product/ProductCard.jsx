@@ -10,15 +10,15 @@ export default function ProductCard({ product }) {
     <Card className="overflow-hidden flex flex-col h-full">
       <img
         src={product.image}
-        alt={product.title}
+        alt={product.name}
         className="h-48 w-full object-cover"
       />
 
       <div className="p-4 flex flex-col flex-1">
-        <h3 className="font-semibold text-lg mb-1">{product.title}</h3>
+        <h3 className="font-semibold text-lg mb-1">{product.name}</h3>
 
         <p className="text-sm text-gray-500 dark:text-gray-400 line-clamp-2 flex-1">
-          {product.shortDescription}
+          {product.description}
         </p>
 
         <div className="mt-4">
