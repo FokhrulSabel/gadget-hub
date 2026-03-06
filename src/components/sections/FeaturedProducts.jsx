@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-
 import Skeleton from "@/components/ui/Skeleton";
 import ProductCard from "../Product/ProductCard";
 
@@ -19,13 +18,19 @@ export default function FeaturedProducts() {
   }, []);
 
   return (
-    <section className="py-16 bg-gray-50 dark:bg-slate-900">
+    <section className="py-24 bg-gradient-to-b from-[#CAF0F8]/30 to-white">
       <div className="max-w-6xl mx-auto px-4">
-        <h2 className="text-3xl font-bold mb-8 text-center">
-          Featured Products
-        </h2>
+        <div className="text-center mb-14">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#03045E]">
+            Featured Products
+          </h2>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <p className="text-gray-600 mt-3">
+            Discover the latest innovations hand-picked for you.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {loading
             ? Array(4)
                 .fill(0)
