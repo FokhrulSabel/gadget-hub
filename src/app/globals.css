@@ -1,8 +1,6 @@
 @import "tailwindcss";
 
-/* =========================
-   GLOBAL SETTINGS
-========================= */
+/* GLOBAL SETTINGS */
 
 html {
   scroll-behavior: smooth;
@@ -14,12 +12,10 @@ body,
   height: 100%;
 }
 
-/* =========================
-   DESIGN TOKENS
-========================= */
+/* DESIGN TOKENS */
 
 :root {
-  /* ===== Theme Colors ===== */
+  /*  Theme Colors  */
   --color-primary: #0077b6;
   --color-secondary: #00b4d8;
   --color-accent: #90e0ef;
@@ -35,7 +31,7 @@ body,
 
   --color-border: #e6f4fa;
 
-  /* ===== Gradients ===== */
+  /*  Gradients  */
 
   --gradient-primary: linear-gradient(135deg, #03045e, #0077b6, #00b4d8);
 
@@ -47,41 +43,32 @@ body,
     transparent
   );
 
-  /* ===== Radius ===== */
+  /*  Radius  */
 
   --radius-sm: 6px;
   --radius-md: 12px;
   --radius-lg: 18px;
   --radius-xl: 24px;
 
-  /* ===== Shadows ===== */
-
+  /*  Shadows  */
   --shadow-sm: 0 4px 10px rgba(0, 0, 0, 0.05);
-
   --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.08);
-
   --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.12);
 
   /* glow shadow */
-
   --shadow-glow: 0 0 30px rgba(0, 180, 216, 0.45);
 
-  /* ===== Layout ===== */
-
+  /*  Layout  */
   --container-width: 1200px;
 
-  /* ===== Motion ===== */
+  /*  Motion  */
 
   --transition-fast: all 0.2s ease;
-
   --transition: all 0.3s ease;
-
   --transition-slow: all 0.5s ease;
 }
 
-/* =========================
-   BODY
-========================= */
+/* BODY */
 
 body {
   font-family:
@@ -96,153 +83,51 @@ body {
 
   background: var(--color-bg);
   color: var(--color-text);
-
   line-height: 1.6;
-
   -webkit-font-smoothing: antialiased;
 }
 
-/* =========================
-   TYPOGRAPHY
-========================= */
-
-h1 {
-  font-size: 3rem;
-  font-weight: 700;
-  line-height: 1.2;
-}
-
-h2 {
-  font-size: 2.2rem;
-  font-weight: 700;
-}
-
-h3 {
-  font-size: 1.6rem;
-  font-weight: 600;
-}
-
+/* TYPOGRAPHY */
 p {
   color: var(--color-text-muted);
 }
 
-/* =========================
-   LINKS
-========================= */
-
+/* LINKS */
 a {
   text-decoration: none;
   color: inherit;
   transition: var(--transition-fast);
 }
 
-/* =========================
-   IMAGES
-========================= */
-
+/* IMAGES */
 img {
   max-width: 100%;
   display: block;
 }
 
-/* =========================
-   BUTTONS
-========================= */
-
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-
-  padding: 12px 22px;
-
-  border-radius: var(--radius-md);
-
-  font-weight: 600;
-
-  transition: var(--transition);
-
-  cursor: pointer;
-}
-
-.btn-primary {
-  background: var(--gradient-primary);
-  color: white;
-
-  box-shadow: var(--shadow-sm);
-}
-
-.btn-primary:hover {
-  transform: translateY(-2px);
-
-  box-shadow: var(--shadow-glow);
-}
-
-.btn-outline {
-  border: 2px solid var(--color-primary);
-  color: var(--color-primary);
-}
-
-.btn-outline:hover {
-  background: var(--color-primary);
-  color: white;
-}
-
-/* =========================
-   GLASSMORPHISM
-========================= */
+/* GLASSMORPHISM */
 
 .glass {
   background: rgba(255, 255, 255, 0.55);
-
   backdrop-filter: blur(14px);
-
   border: 1px solid rgba(255, 255, 255, 0.35);
-
   border-radius: var(--radius-lg);
-
   box-shadow: var(--shadow-md);
 }
 
-/* =========================
-   CARD
-========================= */
 
-.card {
-  background: var(--color-surface);
-
-  border-radius: var(--radius-lg);
-
-  padding: 24px;
-
-  box-shadow: var(--shadow-sm);
-
-  transition: var(--transition);
-}
-
-.card:hover {
-  transform: translateY(-6px);
-
-  box-shadow: var(--shadow-lg);
-}
-
-/* =========================
-   HOVER LIFT
-========================= */
+/* HOVER LIFT */
 
 .hover-lift {
   transition: var(--transition);
 }
-
 .hover-lift:hover {
   transform: translateY(-6px) scale(1.01);
 
   box-shadow: var(--shadow-lg);
 }
 
-/* =========================
-   GLOW EFFECT
-========================= */
+/* GLOW EFFECT */
 
 .glow {
   position: relative;
@@ -250,71 +135,28 @@ img {
 
 .glow::after {
   content: "";
-
   position: absolute;
-
   inset: -2px;
-
   background: var(--gradient-primary);
-
   filter: blur(25px);
-
   opacity: 0.35;
-
   z-index: -1;
 }
 
-/* =========================
-   FORM
-========================= */
 
-input,
-textarea,
-select {
-  width: 100%;
-
-  padding: 12px 14px;
-
-  border-radius: var(--radius-md);
-
-  border: 1px solid var(--color-border);
-
-  outline: none;
-
-  transition: var(--transition);
-}
-
-input:focus,
-textarea:focus {
-  border-color: var(--color-primary);
-
-  box-shadow: 0 0 0 2px rgba(0, 180, 216, 0.25);
-}
-
-/* =========================
-   SECTIONS
-========================= */
-
+/* SECTIONS */
 .section {
   padding: 100px 0;
 }
 
-/* =========================
-   CONTAINER
-========================= */
-
+/* CONTAINER */
 .container {
   max-width: var(--container-width);
-
   margin: 0 auto;
-
   padding: 0 24px;
 }
 
-/* =========================
-   SCROLLBAR
-========================= */
-
+/* SCROLLBAR */
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -323,10 +165,6 @@ textarea:focus {
   background: var(--color-secondary);
   border-radius: 10px;
 }
-
-/* =========================
-   DARK MODE
-========================= */
 
 .dark body {
   background: #02033a;

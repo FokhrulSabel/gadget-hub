@@ -16,6 +16,10 @@ export async function middleware(req) {
     }
   }
 
+  // prevent logged in users from visiting login page
+  if (pathname === "/login" && token)
+    return NextResponse.redirect(new URL("/dashboard", req.url));
+
   // Admin-only protection
   // if (
   //   pathname.startsWith("/dashboard/manage-products") ||
