@@ -11,37 +11,87 @@ export default function Navbar() {
   const { data: session } = useSession();
 
   return (
-    <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-borderColor">
-      <div className="container-custom flex items-center justify-between h-16">
-        {/* LOGO */}
+    <header
+      className="
+      sticky top-0 z-50
+      backdrop-blur-xl
+      bg-white/70
+      border-b border-white/30
+      shadow-sm
+    "
+    >
+      <div className="max-w-7xl mx-auto px-6 py-12 flex items-center justify-between h-16">
+        {/* Logo */}
         <Logo />
 
-        {/* NAV LINKS */}
-        <nav className="hidden md:flex items-center gap-8 text-sm font-medium">
-          <Link href="/" className="hover:text-primary transition-colors">
+        {/* Desktop Navigation */}
+        <nav className="hidden md:flex items-center gap-8 font-medium text-sm">
+          <Link
+            href="/"
+            className="
+            relative text-[#03045E]
+            hover:text-[#0077B6]
+            transition
+            after:absolute after:-bottom-1 after:left-0
+            after:w-0 after:h-[2px]
+            after:bg-gradient-to-r after:from-[#0077B6] after:to-[#00B4D8]
+            after:transition-all
+            hover:after:w-full
+            "
+          >
             Home
           </Link>
 
           <Link
             href="/products"
-            className="hover:text-primary transition-colors"
+            className="
+            relative text-[#03045E]
+            hover:text-[#0077B6]
+            transition
+            after:absolute after:-bottom-1 after:left-0
+            after:w-0 after:h-[2px]
+            after:bg-gradient-to-r after:from-[#0077B6] after:to-[#00B4D8]
+            after:transition-all
+            hover:after:w-full
+            "
           >
             Products
           </Link>
 
-          <Link href="/about" className="hover:text-primary transition-colors">
+          <Link
+            href="/about"
+            className="
+            relative text-[#03045E]
+            hover:text-[#0077B6]
+            transition
+            after:absolute after:-bottom-1 after:left-0
+            after:w-0 after:h-[2px]
+            after:bg-gradient-to-r after:from-[#0077B6] after:to-[#00B4D8]
+            after:transition-all
+            hover:after:w-full
+            "
+          >
             About
           </Link>
         </nav>
 
-        {/* RIGHT SIDE */}
+        {/* Right Section */}
         <div className="flex items-center gap-4">
-          {/* CART */}
-          <button className="relative p-2 rounded-lg hover:bg-gray-100 transition">
-            <ShoppingCart className="w-5 h-5" />
+          {/* Cart */}
+          <button
+            className="
+            relative
+            p-2
+            rounded-xl
+            transition
+            hover:bg-[#CAF0F8]
+            hover:scale-105
+          "
+          >
+            <ShoppingCart className="w-5 h-5 text-[#03045E]" />
           </button>
 
-          {/* AUTH */}
+          {/* Auth */}
           {!session ? (
             <div className="flex items-center gap-3">
               <Link href="/login">
@@ -55,28 +105,40 @@ export default function Navbar() {
           ) : (
             <Dropdown
               trigger={
-                <div className="flex items-center gap-2 cursor-pointer">
-                  <div className="w-9 h-9 rounded-full bg-primary/20 flex items-center justify-center font-semibold text-primary">
+                <div className="flex items-center gap-2 cursor-pointer group">
+                  <div
+                    className="
+                    w-9 h-9
+                    rounded-full
+                    flex items-center justify-center
+                    font-semibold
+                    text-white
+                    bg-gradient-to-r from-[#0077B6] to-[#00B4D8]
+                    shadow-md
+                    group-hover:scale-105
+                    transition
+                  "
+                  >
                     {session.user?.name?.charAt(0) || "U"}
                   </div>
 
-                  <span className="hidden md:block font-medium">
-                    {session.user.name || "User"}
+                  <span className="hidden md:block font-medium text-[#03045E]">
+                    {session.user?.name || "User"}
                   </span>
                 </div>
               }
             >
-              <div className="flex flex-col p-2 min-w-[160px]">
+              <div className="flex flex-col p-2 min-w-[180px]">
                 <Link
                   href="/dashboard"
-                  className="px-3 py-2 rounded-lg hover:bg-gray-100"
+                  className="px-3 py-2 rounded-lg hover:bg-[#CAF0F8]"
                 >
                   Dashboard
                 </Link>
 
                 <button
                   onClick={() => signOut({ callbackUrl: "/" })}
-                  className="text-left px-3 py-2 rounded-lg hover:bg-gray-100"
+                  className="text-left px-3 py-2 rounded-lg hover:bg-[#CAF0F8]"
                 >
                   Logout
                 </button>
