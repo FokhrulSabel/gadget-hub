@@ -9,15 +9,43 @@ export default function Button({
   disabled = false,
 }) {
   const base =
-    "px-4 py-2 rounded-xl font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2";
+    "inline-flex items-center justify-center px-5 py-2.5 rounded-xl font-semibold text-sm transition-all duration-300 focus:outline-none";
 
   const variants = {
-    primary: "bg-cyan-600 hover:bg-cyan-700 text-white focus:ring-cyan-500",
-    secondary:
-      "bg-purple-600 hover:bg-purple-700 text-white focus:ring-purple-500",
-    outline:
-      "border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-slate-700",
-    danger: "bg-red-600 hover:bg-red-700 text-white focus:ring-red-500",
+    primary: `
+      bg-gradient-to-r from-[#0077B6] via-[#00B4D8] to-[#90E0EF]
+      text-white
+      shadow-md
+      hover:-translate-y-0.5
+      hover:shadow-[0_0_20px_rgba(0,180,216,0.6)]
+    `,
+
+    secondary: `
+      bg-[#03045E]
+      text-white
+      hover:bg-[#0077B6]
+      hover:-translate-y-0.5
+      shadow-md
+    `,
+
+    outline: `
+      border border-[#90E0EF]
+      text-[#0077B6]
+      hover:bg-[#CAF0F8]
+      hover:-translate-y-0.5
+    `,
+
+    ghost: `
+      text-[#0077B6]
+      hover:bg-[#CAF0F8]
+    `,
+
+    danger: `
+      bg-red-600
+      text-white
+      hover:bg-red-700
+      hover:-translate-y-0.5
+    `,
   };
 
   return (

@@ -1,3 +1,5 @@
+import { Github, Twitter, Linkedin, Facebook } from "lucide-react";
+
 export default function Footer() {
   return (
     <footer className="bg-bg border-t border-borderColor mt-20">
@@ -11,6 +13,12 @@ export default function Footer() {
               Discover the latest tech gadgets, accessories, and electronics. We
               bring modern technology closer to you with style and reliability.
             </p>
+            <div className="flex gap-4 mt-5">
+              <Github className="w-5 h-5 cursor-pointer hover:text-primary transition" />
+              <Twitter className="w-5 h-5 cursor-pointer hover:text-primary transition" />
+              <Linkedin className="w-5 h-5 cursor-pointer hover:text-primary transition" />
+              <Facebook className="w-5 h-5 cursor-pointer hover:text-primary transition" />
+            </div>
           </div>
 
           {/* Shop */}

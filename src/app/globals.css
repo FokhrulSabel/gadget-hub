@@ -1,36 +1,11 @@
 @import "tailwindcss";
 
+/* =========================
+   GLOBAL SETTINGS
+========================= */
+
 html {
   scroll-behavior: smooth;
-}
-
-/* Design tokens - small starting theme */
-:root {
-  /* Core Colors */
-  --color-primary: #ef9273;
-  --color-primary-hover: #e57f5d;
-
-  --color-bg: #fef9f8;
-  --color-surface: #ffffff;
-
-  --color-text: #0d0d0d;
-  --color-text-muted: #555555;
-
-  --color-border: #f1e3df;
-
-  /* UI */
-  --radius-sm: 6px;
-  --radius-md: 10px;
-  --radius-lg: 16px;
-
-  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
-  --shadow-md: 0 8px 20px rgba(0, 0, 0, 0.08);
-
-  /* Layout */
-  --container-width: 1200px;
-
-  /* Transition */
-  --transition: all 0.25s ease;
 }
 
 html,
@@ -39,8 +14,76 @@ body,
   height: 100%;
 }
 
+/* =========================
+   DESIGN TOKENS
+========================= */
+
+:root {
+  /* ===== Theme Colors ===== */
+  --color-primary: #0077b6;
+  --color-secondary: #00b4d8;
+  --color-accent: #90e0ef;
+
+  --color-dark: #03045e;
+  --color-light: #caf0f8;
+
+  --color-bg: #f8fdff;
+  --color-surface: #ffffff;
+
+  --color-text: #03045e;
+  --color-text-muted: #4a5568;
+
+  --color-border: #e6f4fa;
+
+  /* ===== Gradients ===== */
+
+  --gradient-primary: linear-gradient(135deg, #03045e, #0077b6, #00b4d8);
+
+  --gradient-soft: linear-gradient(135deg, #90e0ef, #caf0f8);
+
+  --gradient-glow: radial-gradient(
+    circle at top,
+    rgba(0, 180, 216, 0.4),
+    transparent
+  );
+
+  /* ===== Radius ===== */
+
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-xl: 24px;
+
+  /* ===== Shadows ===== */
+
+  --shadow-sm: 0 4px 10px rgba(0, 0, 0, 0.05);
+
+  --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.08);
+
+  --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.12);
+
+  /* glow shadow */
+
+  --shadow-glow: 0 0 30px rgba(0, 180, 216, 0.45);
+
+  /* ===== Layout ===== */
+
+  --container-width: 1200px;
+
+  /* ===== Motion ===== */
+
+  --transition-fast: all 0.2s ease;
+
+  --transition: all 0.3s ease;
+
+  --transition-slow: all 0.5s ease;
+}
+
+/* =========================
+   BODY
+========================= */
+
 body {
-  /* @apply bg-white text-slate-900 antialiased; */
   font-family:
     Inter,
     ui-sans-serif,
@@ -50,29 +93,56 @@ body {
     Roboto,
     "Helvetica Neue",
     Arial;
-}
 
-body {
   background: var(--color-bg);
   color: var(--color-text);
+
   line-height: 1.6;
+
+  -webkit-font-smoothing: antialiased;
 }
+
+/* =========================
+   TYPOGRAPHY
+========================= */
+
+h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+h2 {
+  font-size: 2.2rem;
+  font-weight: 700;
+}
+
+h3 {
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+p {
+  color: var(--color-text-muted);
+}
+
+/* =========================
+   LINKS
+========================= */
 
 a {
   text-decoration: none;
   color: inherit;
-  transition: var(--transition);
+  transition: var(--transition-fast);
 }
+
+/* =========================
+   IMAGES
+========================= */
 
 img {
   max-width: 100%;
   display: block;
-}
-
-button {
-  font: inherit;
-  border: none;
-  cursor: pointer;
 }
 
 /* =========================
@@ -83,19 +153,29 @@ button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 10px 18px;
+
+  padding: 12px 22px;
+
   border-radius: var(--radius-md);
+
   font-weight: 600;
+
   transition: var(--transition);
+
+  cursor: pointer;
 }
 
 .btn-primary {
-  background: var(--color-primary);
+  background: var(--gradient-primary);
   color: white;
+
+  box-shadow: var(--shadow-sm);
 }
 
 .btn-primary:hover {
-  background: var(--color-primary-hover);
+  transform: translateY(-2px);
+
+  box-shadow: var(--shadow-glow);
 }
 
 .btn-outline {
@@ -109,19 +189,79 @@ button {
 }
 
 /* =========================
+   GLASSMORPHISM
+========================= */
+
+.glass {
+  background: rgba(255, 255, 255, 0.55);
+
+  backdrop-filter: blur(14px);
+
+  border: 1px solid rgba(255, 255, 255, 0.35);
+
+  border-radius: var(--radius-lg);
+
+  box-shadow: var(--shadow-md);
+}
+
+/* =========================
    CARD
 ========================= */
 
 .card {
   background: var(--color-surface);
+
   border-radius: var(--radius-lg);
+
+  padding: 24px;
+
   box-shadow: var(--shadow-sm);
-  padding: 20px;
+
   transition: var(--transition);
 }
 
 .card:hover {
-  box-shadow: var(--shadow-md);
+  transform: translateY(-6px);
+
+  box-shadow: var(--shadow-lg);
+}
+
+/* =========================
+   HOVER LIFT
+========================= */
+
+.hover-lift {
+  transition: var(--transition);
+}
+
+.hover-lift:hover {
+  transform: translateY(-6px) scale(1.01);
+
+  box-shadow: var(--shadow-lg);
+}
+
+/* =========================
+   GLOW EFFECT
+========================= */
+
+.glow {
+  position: relative;
+}
+
+.glow::after {
+  content: "";
+
+  position: absolute;
+
+  inset: -2px;
+
+  background: var(--gradient-primary);
+
+  filter: blur(25px);
+
+  opacity: 0.35;
+
+  z-index: -1;
 }
 
 /* =========================
@@ -132,40 +272,63 @@ input,
 textarea,
 select {
   width: 100%;
-  padding: 10px 12px;
-  border-radius: var(--radius-sm);
+
+  padding: 12px 14px;
+
+  border-radius: var(--radius-md);
+
   border: 1px solid var(--color-border);
+
   outline: none;
+
   transition: var(--transition);
 }
 
 input:focus,
 textarea:focus {
   border-color: var(--color-primary);
+
+  box-shadow: 0 0 0 2px rgba(0, 180, 216, 0.25);
 }
 
 /* =========================
-   UTILITY CLASSES
+   SECTIONS
 ========================= */
 
-.text-center {
-  text-align: center;
-}
-
-.text-muted {
-  color: var(--color-text-muted);
-}
-
 .section {
-  padding: 80px 0;
+  padding: 100px 0;
 }
 
-/* dark mode */
+/* =========================
+   CONTAINER
+========================= */
+
+.container {
+  max-width: var(--container-width);
+
+  margin: 0 auto;
+
+  padding: 0 24px;
+}
+
+/* =========================
+   SCROLLBAR
+========================= */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-secondary);
+  border-radius: 10px;
+}
+
+/* =========================
+   DARK MODE
+========================= */
+
 .dark body {
-  @apply bg-slate-900 text-slate-100;
-}
-
-/* consistent rounded-xl everywhere helper (we'll use classes too) */
-.rounded-unified {
-  border-radius: 1rem; /* matches rounded-xl */
+  background: #02033a;
+  color: #e6f9ff;
 }

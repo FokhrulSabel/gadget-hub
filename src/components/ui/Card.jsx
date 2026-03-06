@@ -3,7 +3,19 @@
 export default function Card({ children, className = "" }) {
   return (
     <div
-      className={`bg-white dark:bg-slate-800 shadow-md rounded-xl border border-gray-100 dark:border-slate-700 hover:shadow-lg transition-all duration-300 ${className}`}
+      className={`
+      backdrop-blur-lg
+      bg-white/70
+      border border-white/40
+      shadow-md
+      rounded-2xl
+      p-5
+      transition-all
+      duration-300
+      hover:-translate-y-1
+      hover:shadow-xl
+      ${className}
+    `}
     >
       {children}
     </div>
