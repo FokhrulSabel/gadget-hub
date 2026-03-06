@@ -18,7 +18,7 @@ export default function Navbar() {
         <nav className="hidden md:flex gap-6 items-center">
           <Link href="/">Home</Link>
           <Link href="/products">Products</Link>
-          <Link href="/dashboard">Dashboard</Link>
+          {/* <Link href="/dashboard">Dashboard</Link> */}
           <Link href="/about">About</Link>
 
           {!session ? (
