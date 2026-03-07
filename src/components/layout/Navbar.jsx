@@ -2,13 +2,15 @@
 
 import Link from "next/link";
 import { useSession, signOut } from "next-auth/react";
+import { useState } from "react";
 import Logo from "@/components/ui/Logo";
 import Dropdown from "@/components/ui/Dropdown";
 import Button from "@/components/ui/Button";
-import { ShoppingCart } from "lucide-react";
+import { ShoppingCart, Menu, X, LogIn, UserPlus } from "lucide-react";
 
 export default function Navbar() {
   const { data: session } = useSession();
+  const [open, setOpen] = useState(false);
 
   return (
     <header
@@ -20,63 +22,25 @@ export default function Navbar() {
       shadow-sm
     "
     >
-      <div className="max-w-7xl mx-auto px-6 py-12 flex items-center justify-between h-16">
+      <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
         {/* Logo */}
         <Logo />
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-8 font-medium text-sm">
-          <Link
-            href="/"
-            className="
-            relative text-[#03045E]
-            hover:text-[#0077B6]
-            transition
-            after:absolute after:-bottom-1 after:left-0
-            after:w-0 after:h-[2px]
-            after:bg-gradient-to-r after:from-[#0077B6] after:to-[#00B4D8]
-            after:transition-all
-            hover:after:w-full
-            "
-          >
+          <Link className="nav-link" href="/">
             Home
           </Link>
-
-          <Link
-            href="/products"
-            className="
-            relative text-[#03045E]
-            hover:text-[#0077B6]
-            transition
-            after:absolute after:-bottom-1 after:left-0
-            after:w-0 after:h-[2px]
-            after:bg-gradient-to-r after:from-[#0077B6] after:to-[#00B4D8]
-            after:transition-all
-            hover:after:w-full
-            "
-          >
+          <Link className="nav-link" href="/products">
             Products
           </Link>
-
-          <Link
-            href="/about"
-            className="
-            relative text-[#03045E]
-            hover:text-[#0077B6]
-            transition
-            after:absolute after:-bottom-1 after:left-0
-            after:w-0 after:h-[2px]
-            after:bg-gradient-to-r after:from-[#0077B6] after:to-[#00B4D8]
-            after:transition-all
-            hover:after:w-full
-            "
-          >
+          <Link className="nav-link" href="/about">
             About
           </Link>
         </nav>
 
         {/* Right Section */}
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-3">
           {/* Cart */}
           <button
             className="
@@ -91,62 +55,164 @@ export default function Navbar() {
             <ShoppingCart className="w-5 h-5 text-[#03045E]" />
           </button>
 
-          {/* Auth */}
-          {!session ? (
-            <div className="flex items-center gap-3">
-              <Link href="/login">
-                <Button variant="outline">Login</Button>
-              </Link>
-
-              <Link href="/register">
-                <Button>Register</Button>
-              </Link>
-            </div>
-          ) : (
-            <Dropdown
-              trigger={
-                <div className="flex items-center gap-2 cursor-pointer group">
-                  <div
-                    className="
-                    w-9 h-9
-                    rounded-full
-                    flex items-center justify-center
-                    font-semibold
-                    text-white
-                    bg-gradient-to-r from-[#0077B6] to-[#00B4D8]
-                    shadow-md
-                    group-hover:scale-105
-                    transition
-                  "
+          {/* Desktop Auth */}
+          <div className="hidden md:flex items-center gap-3">
+            {!session ? (
+              <div className="flex items-center gap-2">
+                {/* Login */}
+                <Link href="/login">
+                  <Button
+                    variant="outline"
+                    className="flex items-center gap-2 px-3 md:px-4"
                   >
-                    {session.user?.name?.charAt(0) || "U"}
-                  </div>
+                    <LogIn className="w-4 h-4" />
+                    <span className="hidden md:inline">Login</span>
+                  </Button>
+                </Link>
 
-                  <span className="hidden md:block font-medium text-[#03045E]">
-                    {session.user?.name || "User"}
-                  </span>
+                {/* Register */}
+                <Link href="/register">
+                  <Button className="flex items-center gap-2 px-3 md:px-4">
+                    <UserPlus className="w-4 h-4" />
+                    <span className="hidden md:inline">Register</span>
+                  </Button>
+                </Link>
+              </div>
+            ) : (
+              <Dropdown
+                trigger={
+                  <div className="flex items-center gap-2 cursor-pointer group">
+                    <div
+                      className="
+                      w-9 h-9
+                      rounded-full
+                      flex items-center justify-center
+                      font-semibold
+                      text-white
+                      bg-gradient-to-r from-[#0077B6] to-[#00B4D8]
+                      shadow-md
+                    "
+                    >
+                      {session.user?.name?.charAt(0) || "U"}
+                    </div>
+
+                    <span className="font-medium text-[#03045E]">
+                      {session.user?.name || "User"}
+                    </span>
+                  </div>
+                }
+              >
+                <div className="flex flex-col p-2 min-w-[180px]">
+                  <Link
+                    href="/dashboard"
+                    className="px-3 py-2 rounded-lg hover:bg-[#CAF0F8]"
+                  >
+                    Dashboard
+                  </Link>
+
+                  <button
+                    onClick={() => signOut({ callbackUrl: "/" })}
+                    className="text-left px-3 py-2 rounded-lg hover:bg-[#CAF0F8]"
+                  >
+                    Logout
+                  </button>
                 </div>
-              }
-            >
-              <div className="flex flex-col p-2 min-w-[180px]">
+              </Dropdown>
+            )}
+          </div>
+
+          {/* Mobile Hamburger */}
+          <button
+            onClick={() => setOpen(!open)}
+            className="md:hidden p-2 rounded-lg hover:bg-[#CAF0F8]"
+          >
+            {open ? (
+              <X className="w-6 h-6 text-[#03045E]" />
+            ) : (
+              <Menu className="w-6 h-6 text-[#03045E]" />
+            )}
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile Menu */}
+      {open && (
+        <div
+          className="
+          md:hidden
+          border-t border-gray-200
+          bg-white
+          px-6 py-6
+          space-y-4
+        "
+        >
+          <Link
+            href="/"
+            onClick={() => setOpen(false)}
+            className="block text-[#03045E] font-medium"
+          >
+            Home
+          </Link>
+
+          <Link
+            href="/products"
+            onClick={() => setOpen(false)}
+            className="block text-[#03045E] font-medium"
+          >
+            Products
+          </Link>
+
+          <Link
+            href="/about"
+            onClick={() => setOpen(false)}
+            className="block text-[#03045E] font-medium"
+          >
+            About
+          </Link>
+
+          <div className="border-t pt-4 space-y-3">
+            {!session ? (
+              <div className="flex items-center gap-2">
+                {/* Login */}
+                <Link href="/login">
+                  <Button
+                    variant="outline"
+                    className="flex items-center gap-2 px-3 md:px-4"
+                  >
+                    <LogIn className="w-4 h-4" />
+                    <span className="">Login</span>
+                  </Button>
+                </Link>
+
+                {/* Register */}
+                <Link href="/register">
+                  <Button className="flex items-center gap-2 px-3 md:px-4">
+                    <UserPlus className="w-4 h-4" />
+                    <span className="">Register</span>
+                  </Button>
+                </Link>
+              </div>
+            ) : (
+              <>
                 <Link
                   href="/dashboard"
-                  className="px-3 py-2 rounded-lg hover:bg-[#CAF0F8]"
+                  onClick={() => setOpen(false)}
+                  className="block font-medium text-[#03045E]"
                 >
                   Dashboard
                 </Link>
 
                 <button
                   onClick={() => signOut({ callbackUrl: "/" })}
-                  className="text-left px-3 py-2 rounded-lg hover:bg-[#CAF0F8]"
+                  className="text-left font-medium text-[#03045E]"
                 >
                   Logout
                 </button>
-              </div>
-            </Dropdown>
-          )}
+              </>
+            )}
+          </div>
         </div>
-      </div>
+      )}
     </header>
   );
 }
