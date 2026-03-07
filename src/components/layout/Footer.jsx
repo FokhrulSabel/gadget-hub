@@ -2,6 +2,7 @@
 
 import { Github, Twitter, Linkedin, Facebook } from "lucide-react";
 import Logo from "@/components/ui/Logo";
+import Link from "next/link";
 
 export default function Footer() {
   return (
@@ -19,10 +20,37 @@ export default function Footer() {
             </p>
 
             <div className="flex gap-4 mt-6">
-              <Github className="w-5 h-5 cursor-pointer text-gray-600 hover:text-[#0077B6] transition hover:scale-110" />
-              <Twitter className="w-5 h-5 cursor-pointer text-gray-600 hover:text-[#0077B6] transition hover:scale-110" />
-              <Linkedin className="w-5 h-5 cursor-pointer text-gray-600 hover:text-[#0077B6] transition hover:scale-110" />
-              <Facebook className="w-5 h-5 cursor-pointer text-gray-600 hover:text-[#0077B6] transition hover:scale-110" />
+              <a
+                href="https://github.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Github className="w-5 h-5 cursor-pointer text-gray-600 hover:text-[#0077B6] transition hover:scale-110" />
+              </a>
+
+              <a
+                href="https://twitter.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Twitter className="w-5 h-5 cursor-pointer text-gray-600 hover:text-[#0077B6] transition hover:scale-110" />
+              </a>
+
+              <a
+                href="https://linkedin.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Linkedin className="w-5 h-5 cursor-pointer text-gray-600 hover:text-[#0077B6] transition hover:scale-110" />
+              </a>
+
+              <a
+                href="https://facebook.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Facebook className="w-5 h-5 cursor-pointer text-gray-600 hover:text-[#0077B6] transition hover:scale-110" />
+              </a>
             </div>
           </div>
 
@@ -32,19 +60,39 @@ export default function Footer() {
 
             <ul className="space-y-3 text-sm text-gray-600">
               <li>
-                <a className="hover:text-[#0077B6] transition">All Products</a>
+                <Link
+                  href="/products"
+                  className="hover:text-[#0077B6] transition"
+                >
+                  All Products
+                </Link>
               </li>
 
               <li>
-                <a className="hover:text-[#0077B6] transition">New Arrivals</a>
+                <Link
+                  href="/products?filter=new"
+                  className="hover:text-[#0077B6] transition"
+                >
+                  New Arrivals
+                </Link>
               </li>
 
               <li>
-                <a className="hover:text-[#0077B6] transition">Best Sellers</a>
+                <Link
+                  href="/products?filter=popular"
+                  className="hover:text-[#0077B6] transition"
+                >
+                  Best Sellers
+                </Link>
               </li>
 
               <li>
-                <a className="hover:text-[#0077B6] transition">Deals</a>
+                <Link
+                  href="/products?filter=deals"
+                  className="hover:text-[#0077B6] transition"
+                >
+                  Deals
+                </Link>
               </li>
             </ul>
           </div>
@@ -57,19 +105,33 @@ export default function Footer() {
 
             <ul className="space-y-3 text-sm text-gray-600">
               <li>
-                <a className="hover:text-[#0077B6] transition">About</a>
+                <Link href="/about" className="hover:text-[#0077B6] transition">
+                  About
+                </Link>
               </li>
 
               <li>
-                <a className="hover:text-[#0077B6] transition">Careers</a>
+                <Link
+                  href="/"
+                  className="hover:text-[#0077B6] transition"
+                >
+                  Careers
+                </Link>
               </li>
 
               <li>
-                <a className="hover:text-[#0077B6] transition">Blog</a>
+                <Link href="/" className="hover:text-[#0077B6] transition">
+                  Blog
+                </Link>
               </li>
 
               <li>
-                <a className="hover:text-[#0077B6] transition">Contact</a>
+                <Link
+                  href="/"
+                  className="hover:text-[#0077B6] transition"
+                >
+                  Contact
+                </Link>
               </li>
             </ul>
           </div>
@@ -125,11 +187,17 @@ export default function Footer() {
           <p>© {new Date().getFullYear()} GadgetHub. All rights reserved.</p>
 
           <div className="flex gap-6">
-            <a className="hover:text-[#0077B6] transition">Privacy</a>
+            <Link href="/" className="hover:text-[#0077B6] transition">
+              Privacy
+            </Link>
 
-            <a className="hover:text-[#0077B6] transition">Terms</a>
+            <Link href="/" className="hover:text-[#0077B6] transition">
+              Terms
+            </Link>
 
-            <a className="hover:text-[#0077B6] transition">Support</a>
+            <Link href="/" className="hover:text-[#0077B6] transition">
+              Support
+            </Link>
           </div>
         </div>
       </div>
