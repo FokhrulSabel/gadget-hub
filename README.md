@@ -1,36 +1,153 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🚀 GadgetHub
 
-## Getting Started
+**GadgetHub** is a modern gadget marketplace built with **Next.js 15**, **MongoDB**, and **NextAuth**.
+It provides a clean SaaS-style UI where users can explore products, manage gadgets from a dashboard, and enjoy a fast and responsive experience.
 
-First, run the development server:
+---
+
+## ✨ Features
+
+* 🛍️ **Product Catalog** – Browse gadgets with search and pagination
+* 🔐 **Authentication** – Secure login & registration using NextAuth
+* 📊 **User Dashboard** – Manage products with an intuitive interface
+* ➕ **Add Products** – Authenticated users can add gadgets
+* 🛠️ **Manage Products** – Update or remove products from the dashboard
+* 🔎 **Real-time Search** – Find gadgets instantly
+* 📱 **Responsive Design** – Optimized for mobile, tablet, and desktop
+* 🎨 **Modern UI** – Glassmorphism, gradients, and smooth animations
+* ⚡ **Serverless API Routes** – Fast backend with Next.js API
+
+---
+
+## 🧰 Tech Stack
+
+| Technology                  | Purpose                    |
+| --------------------------- | -------------------------- |
+| **Next.js 15 (App Router)** | Full-stack React framework |
+| **React**                   | UI components              |
+| **Tailwind CSS**            | Styling                    |
+| **NextAuth.js**             | Authentication             |
+| **MongoDB**                 | Database                   |
+| **Lucide React**            | Modern icons               |
+| **Vercel**                  | Deployment                 |
+
+---
+
+## 📂 Project Structure
+
+```
+GadgetHub
+│
+├── app
+│   ├── api
+│   │   └── products
+│   │
+│   ├── dashboard
+│   │   ├── add-product
+│   │   └── manage-products
+│   │
+│   ├── products
+│   ├── login
+│   ├── register
+│   └── about
+│
+├── components
+│   ├── ui
+│   │   ├── Button.jsx
+│   │   ├── Dropdown.jsx
+│   │   └── Logo.jsx
+│   │
+│   ├── Navbar.jsx
+│   └── Footer.jsx
+│
+├── lib
+│   └── mongodb.js
+│
+└── public
+```
+
+---
+
+## ⚙️ Installation
+
+Clone the repository:
+
+```bash
+git clone https://github.com/your-username/gadgethub.git
+cd gadgethub
+```
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open in browser:
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+```
+http://localhost:3000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 🔑 Environment Variables
 
-To learn more about Next.js, take a look at the following resources:
+Create a `.env.local` file in the root:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+MONGODB_URI=your_mongodb_connection_string
+NEXTAUTH_SECRET=your_secret_key
+NEXTAUTH_URL=http://localhost:3000
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🌐 Live Demo
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```
+https://gadget-hub-green-eight.vercel.app/
+```
+
+---
+
+## 🚀 Deployment
+
+The easiest way to deploy is with **Vercel**.
+
+```
+npm run build
+```
+
+Then deploy:
+
+```
+vercel
+```
+
+---
+
+## 👨‍💻 Author
+
+**Your Name**
+
+* GitHub: https://github.com/FokhrulSabel
+* https://www.linkedin.com/in/fokhrulsabel/
+
+---
+
+## 📄 License
+
+This project is licensed under the **MIT License**.
+
+---
+
+⭐ If you like this project, consider giving it a **star** on GitHub!
+
